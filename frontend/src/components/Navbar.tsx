@@ -1,8 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useRouter } from "next/dist/client/components/navigation";
 
 export default function Navbar() {
+  const router = useRouter();
+
   return (
     <header className="fixed top-0 left-0 w-full z-50 backdrop-blur-xl bg-black/20 border-b border-white/5">
       <div className="max-w-7xl mx-auto px-8 py-5 flex items-center justify-between">
@@ -41,7 +44,10 @@ export default function Navbar() {
 
         </nav>
 
-        <button className="px-6 py-3 rounded-full border border-white/10 hover:bg-white hover:text-black transition font-semibold">
+        <button 
+          className="px-6 py-3 rounded-full border border-white/10 hover:bg-white hover:text-black transition font-semibold"
+          onClick={() => router.push("/loginsignup")}
+        >
           Launch
         </button>
 

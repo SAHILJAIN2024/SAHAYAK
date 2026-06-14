@@ -2,6 +2,7 @@
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
+import { useRouter } from "next/navigation";
 
 const stats = [
   { num: "∞",     label: "Agent types" },
@@ -19,6 +20,7 @@ const avatars = [
 
 export default function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const router = useRouter();
 
   // Track scroll progress over the 200vh height track
   const { scrollYProgress } = useScroll({
@@ -165,9 +167,12 @@ export default function Hero() {
                   <path d="M3 8h10M9 4l4 4-4 4" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </button>
-              <button className="inline-flex items-center px-8 py-3.5 rounded-full text-[15px] font-medium text-white/60 border border-white/10 bg-white/5 transition-all duration-200 hover:border-violet-500/40 hover:text-white hover:bg-violet-500/8">
-                Documentation
-              </button>
+              <button 
+  className="inline-flex items-center px-8 py-3.5 rounded-full text-[15px] font-medium text-white/60 border border-white/10 bg-white/5 transition-all duration-200 hover:border-violet-500/40 hover:text-white hover:bg-violet-500/8" 
+  onClick={() => router.push("../loginsignup")} // Added leading slash
+>
+  Documentation
+</button>
             </motion.div>
 
             {/* Stats pill row */}
